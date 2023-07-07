@@ -11,17 +11,19 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-   <Navbar></Navbar>
-      <main className="">
-        <ul>
+   <Navbar/>
+      <main>
+        <ul className='grid grid-cols-1 gap-5 text-center p-2'>
           {allPostsData.map(({ id, date, title }) => (
+            <div className='bg-slate-400 rounded-md drop-shadow-md w-1/4 p-4'>
             <li key={id} >
             <Link href={`/posts/${id}` } className='hover:underline' >{title}</Link>
             <br />
             <small>
               <Date dateString={date} />
-            </small>
+            </small>    
           </li>
+          </div>
           ))}
         </ul>
       </main>
