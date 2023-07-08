@@ -1,6 +1,7 @@
 ---
 title: "Procedural Generation"
 date: "2022-01-02"
+tags: "Article"
 ---
 
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**.

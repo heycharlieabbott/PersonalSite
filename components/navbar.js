@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { isTemplateSpan } from 'typescript';
 import { useRouter } from 'next/router';
+import { Typography } from '@material-tailwind/react';
 
 
 const navbar = () => {
@@ -15,9 +16,12 @@ const navBarMap = (items) =>{
   return (
   
   items.map((title, index) => 
+  
   <div>
   <li key={index} className='hover:underline'>
+   <Typography>
    <Link href={`/${title === 'Home' ? '/' : title.toLowerCase()}`}>{title}</Link>
+    </Typography>
   </li>
   </div>
   )
@@ -27,12 +31,15 @@ const navBarMap = (items) =>{
 }
 
   return (
+ 
+  <nav className='sticky top-0 z-10 w-1/4 m-auto'>
     
-  <nav className='sticky top-0 z-10'>
-    <ul className='flex flex-row justify-end mb-8 bg-slate-900 bg-opacity-50 text-white gap-6 pr-4'>
+    <ul className='flex flex-row justify-evenly mb-8 gap-6 pr-4 rounded-sm'>
       {navBarMap(pathname === "/"? navBarItemsHome : navBarItems)}
      </ul>
+   
     </nav>
+    
    )
 }
 

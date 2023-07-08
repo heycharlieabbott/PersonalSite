@@ -3,9 +3,12 @@ import Navbar from '../../components/navbar';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import Head from 'next/head';
 import Date from '../../components/date';
+import { Typography } from '../../lib/typographyclient';
+import { useRef } from 'react';
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
+
   return {
     props: {
       postData,
@@ -22,6 +25,9 @@ export async function getStaticPaths() {
 }
 
 export default function Post({ postData }) {
+
+
+
     return (
       <>
       <Navbar/>
@@ -30,11 +36,12 @@ export default function Post({ postData }) {
         <title>{postData.title}</title>
       </Head>
         <br />
-        {postData.id}
+        <Typography>{postData.id}</Typography>
         <br />
-        <Date dateString={postData.date}/>
+        <Typography><Date dateString={postData.date}/></Typography>
         <br/>
-        <div dangerouslySetInnerHTML={{__html: postData.contentHtml}}/>
+        <div className="font-sans antialiased text-base font-light leading-relaxed" dangerouslySetInnerHTML={{__html: postData.contentHtml}}/>
+     
       </Layout>
       </>
     );

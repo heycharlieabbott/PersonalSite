@@ -4,8 +4,17 @@ import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
 import Navbar from '../components/navbar'
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
 
 export default function Home({ allPostsData }) {
+  console.log(allPostsData)
+
   return (
     <>
       <Head>
@@ -15,15 +24,22 @@ export default function Home({ allPostsData }) {
       <main>
         <ul className='grid grid-cols-1 gap-5 text-center p-2'>
           {allPostsData.map(({ id, date, title }) => (
-            <div className='bg-slate-400 rounded-md drop-shadow-md w-1/4 p-4'>
-            <li key={id} >
-            <Link href={`/posts/${id}` } className='hover:underline' >{title}</Link>
-            <br />
-            <small>
-              <Date dateString={date} />
-            </small>    
-          </li>
-          </div>
+        <Card className="mt-6 w-96 hover:drop-shadow-lg transition ease-in duration-120 bg-blue-gray-50">
+        <CardBody>
+        <Link href={`/posts/${id}` } >
+          <Typography variant="h5" className="mb-2 hover:underline">
+            {title}
+          </Typography>
+          </Link>
+          <Typography>
+          <Date dateString={date} />
+          </Typography>
+        </CardBody>
+        <CardFooter className="pt-0">
+       
+      </CardFooter>
+    </Card>
+          
           ))}
         </ul>
       </main>
@@ -33,6 +49,7 @@ export default function Home({ allPostsData }) {
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
+ 
   return {
     props: {
       allPostsData
