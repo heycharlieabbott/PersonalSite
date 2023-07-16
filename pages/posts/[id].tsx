@@ -5,23 +5,24 @@ import Head from 'next/head';
 import Date from '../../components/date';
 import { Typography } from '../../lib/typographyclient';
 import { useEffect, useRef } from 'react';
+import { GetStaticProps, GetStaticPaths } from 'next'
 
-export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id);
 
-  return {
-    props: {
-      postData,
-    },
-  };
-}
-
-export async function getStaticPaths() {
-  const paths = getAllPostIds();
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getAllPostIds()
   return {
     paths,
-    fallback: false,
-  };
+    fallback: false
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const postData = await getPostData(params?.id as string)
+  return {
+    props: {
+      postData
+    }
+  }
 }
 
 type postProps = {
@@ -34,7 +35,17 @@ type postProps = {
 }
 
 
-export default function Post(postData : postProps) {
+export default function Post({
+  postData
+}: {
+  postData: {
+    title: string
+    date: string
+    contentHtml: string
+  }
+}) {
+
+  
 
 
     return (
@@ -45,9 +56,11 @@ export default function Post(postData : postProps) {
         <title>{postData.title}</title>
       </Head>
         <br />
-        <Typography>{postData.id}</Typography>
+        {/* <Typography>{id}</Typography> */}
         <br />
-        <Typography><Date dateString={postData.date}/></Typography>
+        <Typography>
+          {/* <Date dateString={date}/> */}
+          </Typography>
         <br/>
         <div className="font-sans antialiased text-base font-light leading-relaxed" dangerouslySetInnerHTML={{__html: postData.contentHtml}}/>
      
