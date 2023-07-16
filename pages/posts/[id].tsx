@@ -4,7 +4,7 @@ import { getAllPostIds, getPostData } from '../../lib/posts';
 import Head from 'next/head';
 import Date from '../../components/date';
 import { Typography } from '../../lib/typographyclient';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
@@ -24,8 +24,17 @@ export async function getStaticPaths() {
   };
 }
 
-export default function Post({ postData }) {
+type postProps = {
+  title: string,
+  id: string,
+  date: string,
+  contentHtml: string,
 
+
+}
+
+
+export default function Post(postData : postProps) {
 
 
     return (

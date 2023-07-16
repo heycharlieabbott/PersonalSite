@@ -12,7 +12,18 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-export default function Home({ allPostsData }) {
+
+type homeProps = {
+  allPostsData: {
+    id: string,
+    date: string,
+    title: string, 
+  }[]
+}
+
+
+
+export default function Home({ allPostsData }: homeProps) {
   console.log(allPostsData)
 
   return (

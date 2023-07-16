@@ -4,7 +4,12 @@ import { Typography } from '@material-tailwind/react'
 const name = 'Charlie Abbott'
 export const siteTitle = 'Charlie Abbott`s Site'
 
-export default function Layout({ children, home }) {
+type layoutProps = {
+  children: React.ReactNode,
+  home?: React.ReactNode,
+}
+
+export default function Layout({ children, home }: layoutProps) {
   return (
     <div className='w-1/2 m-auto'>
       <Typography variant='h6'>
