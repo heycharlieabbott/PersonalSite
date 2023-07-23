@@ -12,7 +12,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { useRef, useState, useEffect, useCallback } from 'react'
-import card from '@material-tailwind/react/theme/components/card'
+import Image from 'next/image'
 
 
 type homeProps = {
@@ -37,10 +37,10 @@ export default function Home({ allPostsData }: homeProps) {
       </Head>
    <Navbar/>
       <main>
-        <ul className='grid grid-cols-1 gap-5 text-center p-2 justify-items-center w-screen'>
+        <div className='scroll-pt-10 grid grid-cols-1 gap-5 text-center justify-items-center w-screen h-screen snap-y snap-mandatory overflow-scroll'>
           {allPostsData.map(({ id, date, title }) => (    
-        <Card className="mt-6 hover:drop-shadow-lg transition ease-in duration-120 bg-blue-gray-50 w-1/2" ref={cardRef}>
-        <CardBody>
+        <Card className="mt-6 bg-blue-gray-50 w-1/2 h-[75vh] snap-always snap-start hover:drop-shadow-lg transition ease-in duration-120" ref={cardRef}>
+        <CardBody >
         <Link href={`/posts/${id}` } >
           <Typography variant="h5" className="mb-2 hover:underline">
             {title}
@@ -49,13 +49,24 @@ export default function Home({ allPostsData }: homeProps) {
           <Typography>
           <Date dateString={date} />
           </Typography>
+          <div className='flex flex-row w-full h-full pt-10 gap-10'>
+          <div className='w-full relative hidden md:inline-block'>
+          <Image src={'/images/prof.jpeg'} alt='card' width={200} height={200} className='rounded-xl text-left '/>
+          </div>
+
+          <div className='text-left overflow-hidden'>
+          <Typography>
+            Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text 
+          </Typography>
+          </div>
+          </div>
         </CardBody>
         <CardFooter className="pt-0">   
       </CardFooter>
     </Card>
           
           ))}
-        </ul>
+        </div>
       </main>
     </div>
   )

@@ -32,7 +32,7 @@ const navBarMap = (items) =>{
   return (
     
   <nav className={pathname === "/"? 'sticky top-0 z-10 m-auto bg-brown-300 shadow-md':'top-0 z-10 m-auto  bg-brown-300 shadow-md'}>
-    <ul className='flex flex-row justify-evenly mb-8 gap-6 pr-4 text-white  '>
+    <ul className='flex flex-row justify-evenly gap-6 pr-4 text-white  '>
       {navBarMap(pathname === "/"? navBarItemsHome : navBarItems)}
      </ul>
     </nav>  
