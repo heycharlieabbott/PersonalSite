@@ -1,5 +1,5 @@
 ---
-title: "Procedural Generation"
+title: "Procedural Generation 1"
 date: "2022-01-02"
 tags: "Article"
 ---
