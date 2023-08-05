@@ -19,9 +19,11 @@ export default function Home({ allPostsData }: homeProps) {
   console.log(allPostsData)
  
  const [page, setActive] = useState(1)
-
-
  const window = 3;
+ const [totalPages, setTotalPages] = useState(Array(Math.ceil(3)).fill(0))
+
+
+ 
  
   return (
     <div>
@@ -34,7 +36,7 @@ export default function Home({ allPostsData }: homeProps) {
           {allPostsData.slice((page - 1)*window,(page-1)*window+window).map(({ id, date, title }) => (    
           <CustomCard id={id} date={date} title={title}/>
           ))}
-        <DefaultPagination active={page} setActive={setActive}/>
+        <DefaultPagination active={page} setActive={setActive} totalPages={totalPages}/>
         </div>
       </main>
     </div>

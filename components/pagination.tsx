@@ -4,11 +4,12 @@ import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 type paginationProps = {
     active: number,
-    setActive: React.Dispatch<SetStateAction<number>>
+    setActive: React.Dispatch<SetStateAction<number>>,
+    totalPages: any
 
 }
  
-export function DefaultPagination({active, setActive} : paginationProps) {
+export function DefaultPagination({active, totalPages, setActive} : paginationProps) {
  
   const getItemProps = (index) =>
     ({
@@ -31,7 +32,6 @@ export function DefaultPagination({active, setActive} : paginationProps) {
     window.scrollTo({top:0});
     setActive(active - 1);
   };
-
   
 
  
@@ -47,18 +47,14 @@ export function DefaultPagination({active, setActive} : paginationProps) {
         <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Previous
       </Button>
       <div className="flex items-center gap-2" >
-        <IconButton {...getItemProps(1)}>1</IconButton>
-        <IconButton {...getItemProps(2)}>2</IconButton>
-        <IconButton {...getItemProps(3)}>3</IconButton>
-        <IconButton {...getItemProps(4)}>4</IconButton>
-        <IconButton {...getItemProps(5)}>5</IconButton>
+        {totalPages.map((p,i) => <IconButton {...getItemProps(i +1)}>{i + 1}</IconButton>)}
       </div>
       <Button
         variant="text"
         color="blue-gray"
         className="flex items-center gap-2"
         onClick={next}
-        disabled={active === 5}
+        disabled={active === totalPages.length}
       >
         Next
         <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
