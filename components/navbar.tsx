@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 type navBarText = string[]
 
 type navbarProps = {
-  scrollstatus: string
+  scrollstatus?: string
 
 }
 
