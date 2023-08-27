@@ -1,14 +1,19 @@
 import React from 'react'
 import Link from 'next/link'
-import { isTemplateSpan } from 'typescript';
 import { useRouter } from 'next/router';
 import { Typography } from '@material-tailwind/react';
+import { useState, useEffect } from 'react';
 
 
 type navBarText = string[]
 
+type navbarProps = {
+  scrollstatus: string
 
-const navbar = () => {
+}
+
+
+const navbar = ({scrollstatus}: navbarProps) => {
 
 const navBarItems: navBarText = ["Home", "Projects","Articles",'About'];
 const navBarItemsHome: navBarText = ["Projects","Articles",'About'];
@@ -29,9 +34,11 @@ const navBarMap = (items) =>{
   )
 }
 
+
+
   return (
     
-  <nav className={pathname === "/"? 'sticky top-0 z-10 m-auto bg-brown-300 shadow-md':'top-0 z-10 m-auto  bg-brown-300 shadow-md'}>
+  <nav className={pathname === "/"? `${scrollstatus} top-0 z-10 m-auto bg-brown-300 shadow-md transition-opacity`:'top-0 z-10 m-auto  bg-brown-300 shadow-md'}>
     <ul className='flex flex-row justify-evenly gap-6 pr-4 text-white  '>
       {navBarMap(pathname === "/"? navBarItemsHome : navBarItems)}
      </ul>

@@ -26,7 +26,7 @@ const customcard = ({ id, date, title }: Props) => {
 
   return (
 
-    <Card className="mt-6 bg-blue-gray-50 w-1/2 h-[75vh] snap-always snap-start hover:drop-shadow-lg transition ease-in duration-120" ref={cardRef}>
+    <Card className="mt-6 bg-blue-gray-50 w-1/2 h-[75vh] snap-always snap-start hover:drop-shadow-lg transition ease-in duration-120 overflow-auto" ref={cardRef}>
     <CardBody >
     <Link href={`/posts/${id}` } >
       <Typography variant="h5" className="mb-2 hover:underline">
