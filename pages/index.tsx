@@ -12,6 +12,7 @@ type homeProps = {
     id: string,
     date: any,
     title: string, 
+    tags?: string
   }[]
 }
 

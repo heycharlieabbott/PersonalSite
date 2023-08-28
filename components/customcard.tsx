@@ -16,17 +16,18 @@ import { useRef } from 'react';
 type Props = {
     id: string, 
     date: string, 
-    title: string
+    title: string,
+    tags?: string
 }
 
-const customcard = ({ id, date, title }: Props) => {
+const customcard = ({ id, date, title, tags }: Props) => {
 
     const cardRef = useRef<HTMLDivElement>(null!);
 
 
   return (
 
-    <Card className="mt-6 bg-blue-gray-50 w-1/2 h-[75vh] snap-always snap-start hover:drop-shadow-lg transition ease-in duration-120 overflow-auto" ref={cardRef}>
+    <Card className="flex justify-between mt-6 bg-blue-gray-50 w-1/2 h-[75vh] snap-always snap-start hover:drop-shadow-lg transition ease-in duration-120 overflow-auto" ref={cardRef}>
     <CardBody >
     <Link href={`/posts/${id}` } >
       <Typography variant="h5" className="mb-2 hover:underline">
@@ -47,7 +48,13 @@ const customcard = ({ id, date, title }: Props) => {
       </div>
       </div>
     </CardBody>
-    <CardFooter className="pt-0">   
+
+    <CardFooter className="flex align-bottom">
+
+    <Link href={'/projects'} className='hover:underline'>
+   <Typography variant="small">tag1</Typography> 
+   </Link>  
+
   </CardFooter>
 </Card>
 
