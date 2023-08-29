@@ -27,7 +27,7 @@ const customcard = ({ id, date, title, tags }: Props) => {
 
   return (
 
-    <Card className="flex justify-between mt-6 bg-blue-gray-50 w-1/2 h-[75vh] snap-always snap-start hover:drop-shadow-lg transition ease-in duration-120 overflow-auto" ref={cardRef}>
+    <Card className="flex justify-between mt-6 bg-blue-gray-50 w-1/2 h-full snap-always snap-start hover:drop-shadow-lg transition ease-in duration-120 overflow-auto" ref={cardRef}>
     <CardBody >
     <Link href={`/posts/${id}` } >
       <Typography variant="h5" className="mb-2 hover:underline">
@@ -37,7 +37,7 @@ const customcard = ({ id, date, title, tags }: Props) => {
       <Typography>
       <Date dateString={date} />
       </Typography>
-      <div className='flex flex-row w-full h-full pt-10 gap-10'>
+      <div className='flex flex-row pt-10 gap-10'>
       <div className='w-full relative hidden md:inline-block'>
       <Image src={'/images/prof.jpeg'} alt='card' width={200} height={200} className='rounded-xl text-left '/>
       </div>
@@ -49,10 +49,10 @@ const customcard = ({ id, date, title, tags }: Props) => {
       </div>
     </CardBody>
 
-    <CardFooter className="flex align-bottom">
-
-    <Link href={'/projects'} className='hover:underline'>
-   <Typography variant="small">tag1</Typography> 
+    <CardFooter className="flex align-bottom gap-3">
+    <Typography variant='small'>Category:</Typography>
+    <Link href={'/projects'} className='underline underline-offset-4  '>
+   <Typography variant="small">{tags}</Typography> 
    </Link>  
 
   </CardFooter>

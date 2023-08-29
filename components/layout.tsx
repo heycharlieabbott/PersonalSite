@@ -13,7 +13,7 @@ export default function Layout({ children, home }: layoutProps) {
   return (
     <div className='w-1/2 m-auto'>
       <Typography variant='h6'>
-        <header>Title </header>
+        <header className='text-center pt-10'>Title </header>
       </Typography>
       <main >
        

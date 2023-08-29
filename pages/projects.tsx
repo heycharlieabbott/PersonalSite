@@ -16,12 +16,16 @@ type homeProps = {
   }[]
 }
 
-export default function Home({ allPostsData }: homeProps) {
+export default function Projects({ allPostsData }: homeProps) {
+
+    const filteredPosts = allPostsData.filter((post) => post.tags==='Project')
+
   
  
  const [page, setActive] = useState(1)
  const windowPage = 3;
- const [totalPages, setTotalPages] = useState(Array(Math.ceil(3)).fill(0))
+ 
+ const [totalPages, setTotalPages] = useState(Array(Math.ceil(filteredPosts.length / windowPage)).fill(0))
 
  
  const [scrollY, setScrollY] = useState(0);
@@ -55,8 +59,8 @@ export default function Home({ allPostsData }: homeProps) {
    <Navbar scrollstatus={status}/>
       <main>
         <div className='scroll-pt-10 grid grid-cols-1 gap-5 text-center justify-items-center w-screen'>
-          {allPostsData.slice((page - 1)*windowPage,(page-1)*windowPage+windowPage).map(({ id, date, title, tags }) => (    
-          <CustomCard id={id} date={date} title={title} tags={tags}/>
+          {filteredPosts.slice((page - 1)*windowPage,(page-1)*windowPage+windowPage).map(({ id, date, title, tags }) => (    
+          <CustomCard id={id} date={date} title={title} tags={tags}/>      
           ))}
         <DefaultPagination active={page} setActive={setActive} totalPages={totalPages}/>
         </div>
