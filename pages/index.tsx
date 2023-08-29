@@ -17,7 +17,7 @@ type homeProps = {
 }
 
 export default function Home({ allPostsData }: homeProps) {
-  console.log(allPostsData)
+  // console.log(allPostsData)
  
  const [page, setActive] = useState(1)
  const windowPage = 3;
