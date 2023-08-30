@@ -6,6 +6,7 @@ import Navbar from '../components/navbar'
 import { useRef, useState, useEffect, useCallback } from 'react'
 import { DefaultPagination } from '../components/pagination'
 import CustomCard from '../components/customcard'
+import { Typography } from '@material-tailwind/react'
 
 type homeProps = {
   allPostsData: {
@@ -18,7 +19,7 @@ type homeProps = {
 
 export default function Projects({ allPostsData }: homeProps) {
 
-    const filteredPosts = allPostsData.filter((post) => post.tags==='Project')
+const filteredPosts = allPostsData.filter((post) => post.tags==='Project')
 
   
  

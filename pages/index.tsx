@@ -26,6 +26,7 @@ export default function Home({ allPostsData }: homeProps) {
  
  const [scrollY, setScrollY] = useState(0);
  const [status, setStatus] = useState('sticky')
+ const [homeClicked, setHomeClicked] = useState(0)
 
  function logit() {
   if (window.scrollY > scrollY){
@@ -52,7 +53,7 @@ export default function Home({ allPostsData }: homeProps) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-   <Navbar scrollstatus={status}/>
+   <Navbar scrollstatus={status} homeclick={setActive} homeclickVal={homeClicked}/>
       <main>
         <div className='scroll-pt-10 grid grid-cols-1 gap-5 text-center justify-items-center w-screen'>
           {allPostsData.slice((page - 1)*windowPage,(page-1)*windowPage+windowPage).map(({ id, date, title, tags }) => (    
