@@ -51,7 +51,7 @@ const customcard = ({ id, date, title, tags }: Props) => {
 
     <CardFooter className="flex align-bottom gap-3">
     <Typography variant='small'>Category:</Typography>
-    <Link href={'/projects'} className='underline underline-offset-4  '>
+    <Link href={`/${tags.toLowerCase() + 's'}`} className='underline underline-offset-4  '>
    <Typography variant="small">{tags}</Typography> 
    </Link>  
 

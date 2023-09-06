@@ -12,7 +12,7 @@ const about = (props: Props) => {
     <Navbar scrollstatus={"Show"}/>
     <div className='flex flex-col gap-20 items-center h-full justify-center'>
         <Typography variant="h1">
-            This is a blog by <a className='hover:underline hover:text-light-blue-300 transition duration-150'href='https://www.heycharlieabbott.com'>Charlie Abbott</a>
+            This is a blog by <a className='hover:underline hover:text-blue-500 transition duration-150'href='https://www.heycharlieabbott.com'>Charlie Abbott</a>
         </Typography>
         <div>
         <ContactForm/>

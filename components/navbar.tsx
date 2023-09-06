@@ -48,7 +48,8 @@ const navBarMap = (items) =>{
 
   return (
     
-  <nav className={pathname === "/"? `${scrollstatus} flex justify-center items-center h-10 top-0 z-10 m-auto bg-brown-300 shadow-md transition-opacity`:'flex justify-center items-center h-10 top-0 z-10 m-auto  bg-brown-300 shadow-md'}>
+  <nav className={pathname === "/"? `${scrollstatus} flex justify-center items-center h-10 top-0 z-10 m-auto bg-blue-600 shadow-md transition-opacity`:
+  'flex justify-center items-center h-10 top-0 z-10 m-auto  bg-blue-600 shadow-md'}>
     <ul className=' w-full flex flex-row justify-evenly items-center gap-6 pr-4 text-white focus:ring '>
       {navBarMap(navBarItems)}
      </ul>
